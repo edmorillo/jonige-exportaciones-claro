@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg-dark: #F3F7FC;          /* Fondo principal: Blanco hielo / celestito muy suave */
-    --bg-surface: #E8F0F8;       /* Fondo secundario celeste pastel sutil para contrastar secciones */
-    --bg-card: #FFFFFF;          /* Tarjetas en blanco puro */
-    --gold: #B3923B;             /* Dorado corporativo ajustado para resaltar sobre blanco */
+    --bg-dark: #F3F7FC;          
+    --bg-surface: #E8F0F8;       
+    --bg-card: #FFFFFF;          
+    --gold: #B3923B;             
     --gold-hover: #9A7B2C;
-    --gold-bright: #C2A75C;      /* Dorado original para botones */
-    --text-white: #0A182E;       /* Títulos principales en Azul Marino profundo del logo */
-    --text-muted: #475569;       /* Párrafos en gris azulado de alta legibilidad */
+    --gold-bright: #C2A75C;      
+    --text-white: #0A182E;       
+    --text-muted: #475569;       
     --border-subtle: rgba(179, 146, 59, 0.35);
     --border-card: rgba(10, 24, 46, 0.09);
     
@@ -327,7 +327,6 @@ img {
     display: inline-block;
 }
 
-/* Textos blancos sobre la foto de portada para lectura perfecta */
 .hero-title, .hero h1 {
     font-size: 3.2rem;
     line-height: 1.15;
@@ -390,7 +389,6 @@ img {
     transform: translateY(-4px);
 }
 
-/* Controles del carrusel */
 .hero-slider-controls {
     position: relative;
     z-index: 10;
@@ -518,11 +516,6 @@ img {
     transition: var(--transition);
 }
 
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
 .stat-card h4 {
     font-size: 1.5rem;
     color: var(--gold);
@@ -603,12 +596,6 @@ img {
     transition: var(--transition);
 }
 
-.val-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--border-subtle);
-}
-
 .val-box i {
     font-size: 1.8rem;
     color: var(--gold);
@@ -632,12 +619,6 @@ img {
     position: relative;
     box-shadow: var(--shadow-soft);
     transition: var(--transition);
-}
-
-.about-highlight-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--gold);
 }
 
 .hl-icon {
@@ -743,12 +724,6 @@ img {
     transition: var(--transition);
 }
 
-.spec-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--border-subtle);
-}
-
 .spec-badge {
     background: rgba(194, 167, 92, 0.2);
     color: #8C6D1F;
@@ -759,6 +734,7 @@ img {
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 16px;
+    width: fit-content;
 }
 
 .spec-card h3 {
@@ -778,12 +754,25 @@ img {
     margin-top: auto;
 }
 
+/* Tildes con circulito dorado en las listas de productos */
 .spec-list li {
-    padding: 12px 0;
+    position: relative;
+    padding: 12px 0 12px 28px !important;
     border-top: 1px solid var(--border-card);
     font-size: 0.88rem;
     color: var(--text-white);
     font-weight: 400;
+}
+
+.spec-list li::before {
+    content: '\f058'; /* Ícono check-circle */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 400;
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-size: 1rem;
 }
 
 .spec-list strong {
@@ -850,12 +839,6 @@ img {
     overflow: hidden;
 }
 
-.step-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--border-subtle);
-    box-shadow: var(--shadow-hover);
-}
-
 .step-num {
     font-size: 3.5rem;
     font-weight: 800;
@@ -882,7 +865,7 @@ img {
     font-weight: 400;
 }
 
-/* --- GALERÍA --- */
+/* --- GALERÍA ESTILO SOLARPOWER CON DIFUMINADO SIN LÍNEA --- */
 .gallery-grid-dental {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -900,16 +883,14 @@ img {
     box-shadow: var(--shadow-soft);
 }
 
-.gallery-card-dental:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--border-subtle);
-}
-
 .g-img-box {
-    height: 200px; 
+    position: relative;
+    height: 225px;
     width: 100%;
     overflow: hidden;
+    /* Difuminado perfecto sin raya */
+    -webkit-mask-image: linear-gradient(to bottom, #000000 38%, rgba(0, 0, 0, 0) 94%);
+    mask-image: linear-gradient(to bottom, #000000 38%, rgba(0, 0, 0, 0) 94%);
 }
 
 .g-img-box img {
@@ -924,6 +905,10 @@ img {
 }
 
 .g-body {
+    position: relative;
+    z-index: 2;
+    margin-top: -28px;
+    padding-top: 10px;
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -953,10 +938,12 @@ img {
     gap: 8px;
 }
 
-/* --- AGENCIA CARD --- */
+/* --- AGENCIA CARD (FONDO FOTOGRÁFICO CON VELO) --- */
 .agency-card {
-    background: linear-gradient(135deg, #FFFFFF 0%, #E8F0F8 100%);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(135deg, rgba(7, 16, 30, 0.88) 0%, rgba(14, 26, 46, 0.82) 100%), 
+                url('../assets/img/puerto-guayaquil.jpeg') center/cover no-repeat !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(194, 167, 92, 0.4) !important;
     padding: 70px 50px;
     border-radius: var(--radius-lg);
     text-align: center;
@@ -966,8 +953,8 @@ img {
 }
 
 .agency-badge {
-    background: rgba(194, 167, 92, 0.2);
-    color: #8C6D1F;
+    background: rgba(194, 167, 92, 0.2) !important;
+    color: #E2C97A !important;
     padding: 8px 18px;
     border-radius: var(--radius-pill);
     font-weight: 700;
@@ -981,11 +968,12 @@ img {
 .agency-card h2 {
     font-size: 2.4rem;
     margin-bottom: 20px;
+    color: #FFFFFF !important;
 }
 
 .agency-intro {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #D0DFEE !important;
     max-width: 750px;
     margin: 0 auto 50px auto;
     font-weight: 400;
@@ -1000,11 +988,11 @@ img {
 }
 
 .ag-feat {
-    background: #FFFFFF;
+    background: rgba(7, 16, 30, 0.55) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     padding: 30px;
     border-radius: var(--radius-md);
-    border: 1px solid var(--border-card);
-    box-shadow: var(--shadow-soft);
 }
 
 .ag-feat i {
@@ -1016,11 +1004,64 @@ img {
 .ag-feat h5 {
     font-size: 1.1rem;
     margin-bottom: 10px;
+    color: #FFFFFF !important;
 }
 
 .ag-feat p {
     font-size: 0.88rem;
     font-weight: 400;
+    color: #D0DFEE !important;
+}
+
+/* Botones y confianza en Agencia */
+.agency-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-wa-glass {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 14px 32px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.btn-wa-glass i {
+    color: #25D366;
+    font-size: 1.25rem;
+}
+
+.btn-wa-glass:hover {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: #25D366;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+}
+
+.agency-trust-strip {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.8rem;
+    color: #D0DFEE !important;
+    opacity: 0.9;
+}
+
+.trust-sep {
+    opacity: 0.4;
 }
 
 /* --- FOOTER & FORM CLARO --- */
@@ -1088,10 +1129,6 @@ img {
     margin-bottom: 14px;
 }
 
-.contact-data-list li:last-child {
-    margin-bottom: 0;
-}
-
 .contact-data-list i {
     font-size: 1.1rem;
     color: var(--gold);
@@ -1126,7 +1163,6 @@ img {
     display: block;
     margin-bottom: 12px;
     color: var(--text-muted);
-    white-space: nowrap;
 }
 
 .social-links {
@@ -1493,106 +1529,6 @@ img {
         justify-content: center;
         white-space: nowrap;
     }
-}
-
-/* =========================================
-   EFECTO SCROLL REVEAL (APARICIÓN SUAVE)
-   ========================================= */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(38px);
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-}
-
-.reveal-item.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================
-   MEJORAS VISUALES: DESVANECIDO EN FOTOS + BOTÓN WA AGENCIA
-   ========================================= */
-
-/* 1. Efecto desvanecido suave en la parte inferior de las fotos */
-.g-img-box {
-    position: relative;
-    height: 215px;
-}
-
-.g-img-box::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 65%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--bg-card) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Sube levemente el título para que pise sobre el desvanecido */
-.g-body {
-    position: relative;
-    z-index: 2;
-    margin-top: -18px;
-    padding-top: 10px;
-}
-
-/* 2. Grupo de botones y barra de confianza en Sección Agencia */
-.agency-cta-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.btn-wa-glass {
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text-white);
-    border: 1px solid rgba(37, 211, 102, 0.45);
-    padding: 14px 32px;
-    border-radius: var(--radius-pill);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    backdrop-filter: blur(10px);
-    transition: var(--transition);
-}
-
-.btn-wa-glass i {
-    color: #25D366;
-    font-size: 1.25rem;
-}
-
-.btn-wa-glass:hover {
-    background: rgba(37, 211, 102, 0.14);
-    border-color: #25D366;
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
-}
-
-.agency-trust-strip {
-    margin-top: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    opacity: 0.85;
-}
-
-.trust-sep {
-    opacity: 0.35;
-}
-
-@media (max-width: 768px) {
     .agency-cta-group {
         flex-direction: column;
         width: 100%;
@@ -1612,4 +1548,33 @@ img {
         gap: 6px;
         margin-top: 20px;
     }
+}
+
+/* =========================================
+   EFECTO SCROLL REVEAL Y HOVER
+   ========================================= */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(38px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+    will-change: opacity, transform;
+}
+
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s !important;
+}
+
+.gallery-card-dental.revealed:hover,
+.spec-card.revealed:hover,
+.step-card.revealed:hover,
+.val-box.revealed:hover,
+.stat-card.revealed:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
 }
