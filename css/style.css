@@ -232,10 +232,18 @@ img {
     color: var(--gold);
 }
 
+/* --- FOOTER DEL MENÚ MÓVIL REPARADO --- */
 .fs-menu-footer {
     margin-top: auto;
-    padding-top: 25px;
+    padding-top: 20px;
     padding-bottom: 10px;
+}
+
+.fs-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .btn-fs-quote {
@@ -248,15 +256,75 @@ img {
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
-    padding: 16px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-fs-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #25D366;
+    color: #16A34A;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.btn-fs-wa i {
+    color: #25D366;
+    font-size: 1.2rem;
+}
+
+.fs-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-card);
 }
 
 .fs-contact-info p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fs-contact-info i {
+    color: var(--gold);
+}
+
+.fs-social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.fs-social-links a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.fs-social-links a:hover {
+    background: var(--gold-bright);
+    color: #07101E;
 }
 
 /* --- HERO SLIDER (MANTIENE CONTRASTE ELEGANTE SOBRE LAS FOTOS) --- */
