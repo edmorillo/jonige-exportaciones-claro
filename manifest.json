@@ -1,0 +1,16 @@
+{
+  "name": "JONIGE S.A.S.",
+  "short_name": "JONIGE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F7FC",
+  "theme_color": "#C2A75C",
+  "icons": [
+    {
+      "src": "assets/img/Logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
